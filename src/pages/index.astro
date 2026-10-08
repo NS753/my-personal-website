@@ -1,0 +1,274 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+
+const collections = [
+  {
+    name: 'Soft Layers',
+    alt: 'Woman wearing a soft knit jumper in a warm autumn outfit.',
+    description: 'Textured knits, brushed wool, and easy silhouettes designed for crisp mornings and cosy evenings.',
+    image:
+      'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Autumn Edit',
+    alt: 'Model in a neutral autumn outfit standing outdoors in warm seasonal styling.',
+    description: 'Rich neutrals, warm tones, and modern staples made to move effortlessly from day to evening.',
+    image:
+      'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Weekend Ease',
+    alt: 'Woman in relaxed weekend styling with a soft, confident everyday look.',
+    description: 'Relaxed tailoring and fluid silhouettes for a polished look without trying too hard.',
+    image:
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
+  },
+];
+
+const principles = [
+  {
+    number: '01',
+    title: 'Easy confidence',
+    text: 'Pieces designed to flatter and move with you, from everyday errands to layered evening looks.',
+  },
+  {
+    number: '02',
+    title: 'Premium feel',
+    text: 'Warm materials, elevated basics, and a refined palette that feels thoughtfully considered.',
+  },
+  {
+    number: '03',
+    title: 'Seasonal ease',
+    text: 'A wardrobe built around autumn colours and textures that feel timeless, not trend-chasing.',
+  },
+];
+
+const homewear = [
+  {
+    name: 'Cosy Pyjamas',
+    alt: 'Fashionable sleepwear set in soft neutral tones for relaxed evenings at home.',
+    description: 'Soft cotton sets, brushed textures, and easy fits made for slow mornings and restful nights.',
+    image:
+      'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Lounge Layers',
+    alt: 'Person reading by the fireplace in a cosy, relaxed home setting.',
+    description: 'Relaxed essentials for reading, unwinding, and feeling put together even at home.',
+    image:
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Nighttime Ease',
+    alt: 'Woman in soft cosy homewear relaxing indoors in a warm evening setting.',
+    description: 'Quiet luxury details and gentle fabrics that turn downtime into a comforting ritual.',
+    image:
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
+  },
+];
+
+const journal = [
+  {
+    tag: 'Style Notes',
+    title: 'How to build a warm-weather winter wardrobe',
+    text: 'The easiest way to layer for colder days without sacrificing lightness or personality.',
+  },
+  {
+    tag: 'The Edit',
+    title: 'Three neutral shades for effortless autumn dressing',
+    text: 'A closer look at taupe, camel, and espresso tones that work beautifully together.',
+  },
+  {
+    tag: 'Behind The Brand',
+    title: 'Why thoughtful fashion still feels personal',
+    text: 'The design philosophy behind creating staples that suit real lives and real routines.',
+  },
+];
+---
+
+<Layout>
+  <header class="topbar">
+    <div class="site-shell">
+      <a href="#top" class="brand" aria-label="Cozy Collectives home">Cozy Collectives</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#collections" aria-label="View all collections">Collections</a>
+        <a href="#story" aria-label="Read our brand story">Story</a>
+        <a href="#journal" aria-label="Read our journal articles">Journal</a>
+        <a href="#contact" aria-label="Contact Cozy Collectives">Contact</a>
+      </nav>
+      <a class="button button-secondary" href="#contact" aria-label="Book a styling call with Cozy Collectives">Book a styling call</a>
+    </div>
+  </header>
+
+  <main id="top" class="site-shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Autumn / Winter 2026</span>
+          <h1 id="hero-title">Warm layers for everyday confidence.</h1>
+          <p class="hero-copy">
+            Discover autumn and winter fashion made for crisp mornings, cosy evenings and everything in between.
+            From timeless layers and rich textures to statement pieces that bring warmth and personality to every
+            look.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#collections">Shop the edit</a>
+            <a class="button button-secondary" href="#story">Our story</a>
+          </div>
+          <ul class="hero-stats" aria-label="Brand highlights">
+            <li><strong>Curated</strong> seasonal styles</li>
+            <li><strong>Premium</strong> everyday pieces</li>
+            <li><strong>Warm</strong> tonal palettes</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card">
+            <div class="meta">New arrival</div>
+            <h2>The Quiet Luxe Edit</h2>
+            <p>Soft tailoring, tactile layers, and rich seasonal tones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="collections" aria-labelledby="collections-title">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Collections</p>
+          <h2 id="collections-title">Designed for the season ahead.</h2>
+        </div>
+        <a class="button button-secondary" href="#contact">View more</a>
+      </div>
+
+      <div class="collection-grid">
+        {collections.map((item) => (
+          <article class="card">
+            <img class="card-visual" src={item.image} alt={item.alt} loading="lazy" />
+            <div class="card-copy">
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              <a class="card-link" href="#contact" aria-label={`Explore the ${item.name} collection`}>Explore the range</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section" id="story" aria-labelledby="story-title">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Our story</p>
+          <h2 id="story-title">Fashion that feels personal.</h2>
+        </div>
+      </div>
+
+      <div class="story-layout">
+        <div class="story-panel">
+          <p>
+            Cozy Collectives began with a simple idea: beautiful clothing should feel as good as it looks. We design
+            for the woman who wants warmth, structure, and personality in her wardrobe without sacrificing ease.
+          </p>
+          <p>
+            Every piece is shaped by quiet luxury, modern comfort, and the beauty of natural textures. From plush
+            knits to tailored layers, our collections embrace colour, softness, and confidence in everyday dressing.
+          </p>
+          <p>
+            We believe style should be expressive but effortless, and that the best wardrobe pieces are the ones you
+            reach for again and again.
+          </p>
+        </div>
+        <div class="story-image" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="homewear-title">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Homewear</p>
+          <h2 id="homewear-title">Cozy Nights - Loungewear and Sleepwear</h2>
+        </div>
+      </div>
+
+      <div class="collection-grid">
+        {homewear.map((item) => (
+          <article class="card">
+            <img class="card-visual" src={item.image} alt={item.alt} loading="lazy" />
+            <div class="card-copy">
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              <a class="card-link" href="#contact" aria-label={`See the ${item.name} collection`}>See the collection</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="values-title">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Why Cozy Collectives</p>
+          <h2 id="values-title">The details make the difference.</h2>
+        </div>
+      </div>
+
+      <div class="value-grid">
+        {principles.map((item) => (
+          <article class="card value-card">
+            <div class="value-number">{item.number}</div>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section" id="journal" aria-labelledby="journal-title">
+      <div class="section-header">
+        <div>
+          <p class="kicker">Journal</p>
+          <h2 id="journal-title">Notes on feeling good in what you wear.</h2>
+        </div>
+      </div>
+
+      <div class="journal-grid">
+        {journal.map((item) => (
+          <article class="card journal-card">
+            <span class="tag">{item.tag}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+            <a class="card-link" href="#contact">Read more</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-wrap">
+        <div class="contact-copy">
+          <p class="kicker">Get in touch</p>
+          <h2 id="contact-title">Your next favourite layer is waiting.</h2>
+          <p>
+            Discover pieces that suit your day, your mood, and the season ahead. We’d love to help you find your
+            perfect fit.
+          </p>
+        </div>
+
+        <div class="contact-panel" aria-label="Contact details">
+          <a href="mailto:hello@cozycollectives.com" aria-label="Email Cozy Collectives">hello@cozycollectives.com</a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Visit Cozy Collectives on Instagram">Instagram</a>
+          <a href="https://pinterest.com" target="_blank" rel="noreferrer" aria-label="Visit Cozy Collectives on Pinterest">Pinterest</a>
+          <span>Based in Liverpool, serving wardrobes across the UK and beyond.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-shell">
+      <span>© 2026 Nesta Sibi</span>
+      <span>Warm essentials, elevated every day.</span>
+    </div>
+  </footer>
+</Layout>
